@@ -68,7 +68,6 @@ class NewSaleViewController: UIViewController {
                 self.streetField.text = sale.address.street
                 self.townField.text = sale.address.town
                 self.zipField.text = sale.address.zip
-                //is this enough to set the selected tag?
                 let t = ["Tag":0,"Yard":1,"Garage":2,"Estate":3]
 //                self.types[t[sale.type.rawValue]!].isOn = true
 //                self.typeCollectionView.selectItem(at: IndexPath(row: 1, section: 0), animated: false, scrollPosition: [])
