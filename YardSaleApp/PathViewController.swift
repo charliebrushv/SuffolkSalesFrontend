@@ -147,69 +147,12 @@ class PathViewController: UIViewController {
         if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps://")!) {
             UIApplication.shared.open(string, options: [:], completionHandler: nil)
         } else {
-//            let alert = UIAlertController(title: "Can't Find Location", message: "Please turn on location services in Settings", preferredStyle: .alert)
-//            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default))
-//            alert.addAction(UIAlertAction(title: "Settings", style: UIAlertAction.Style.default, handler: {_ in
-//                let url = URL(string: UIApplication.openSettingsURLString)
-//                if let string = url {
-//                    UIApplication.shared.open(string) }
-//            }))
-//            self.present(alert, animated: true, completion: nil)
+
             UIApplication.shared.open(URL(string: httpstring)!, options: [:], completionHandler: nil)
             
-//            planRoutes()
         }
     }
-//    
-//    func planRoutes() {
-//        routes = []
-//        if let user = userLocation() {
-//            let request = MKDirections.Request()
-//            request.transportType = .automobile
-//            
-////            print("favorite count: \(favorites.count)")
-//            
-//            first(from: user, for: request)
-//            if favorites.count>1 {
-//                for i in 0...(favorites.count-2) {
-//                    if let place1 = self.favorites[i].getPlacemark(), let place2 = self.favorites[i+1].getPlacemark() {
-//                        request.source = MKMapItem(placemark: place1)
-//                        request.destination = MKMapItem(placemark: place2)
-//                        getDirections(for: request)
-//                    }
-//                }
-//            }
-//        }
-//    }
-//    
-//    func getDirections(for request: MKDirections.Request) {
-//        let directions = MKDirections(request: request)
-//        directions.calculate() {response,error in
-//            if let route = response?.routes[0] {
-//                self.routes.append(route)
-//                if self.routes.count==self.favorites.count {
-//                    self.delegate?.addPolylines(routes: self.routes)
-//                }
-//            }
-//        }
-//    }
-//    
-//    func first(from user: MKPlacemark, for request: MKDirections.Request) {
-//        if let place = self.favorites[0].getPlacemark() {
-//            request.source = MKMapItem(placemark: user)
-//            request.destination = MKMapItem(placemark: place)
-//            getDirections(for: request)
-//        }
-//    }
-//    
-//    func last(to user: MKPlacemark, for request: MKDirections.Request) {
-//        if let place = self.favorites[favorites.count-1].getPlacemark() {
-//            request.source = MKMapItem(placemark: place)
-//            request.destination = MKMapItem(placemark: user)
-//            getDirections(for: request, last: true)
-//        }
-//    }
-    
+
     func userLocation() -> MKPlacemark? {
         if let userLoc = delegate?.getUserLocation() {
             let userCoord = CLLocationCoordinate2D(latitude: userLoc.coordinate.latitude, longitude: userLoc.coordinate.longitude)
