@@ -74,13 +74,7 @@ class NavigationController: UINavigationController, navigationControllerDelegate
     }
     
     private var annotations: [Sale:CustomAnnotation] = [:]
-//        didSet {
-//            if let newAnnotations = annotations {
-//                print("setting displayed annotations")
-//                mapDelegate?.setDisplayedAnnotations(annotations: newAnnotations)
-//            }
-//        }
-//    }
+
     
     var listDelegate: ListViewControllerDelegate?
     var mapDelegate: MapViewControllerDelegate?
@@ -186,12 +180,10 @@ class NavigationController: UINavigationController, navigationControllerDelegate
                 print(sale)
             }
         }
-        //check what is happening when listDelegate.setActiveSales is called, where do the favorites come from?? clearly they have not been set correctly in the list page, but calling updateActiveSales() somehow fixes that??
     }
     
     //retrieve favorites from userDefaults and set them if they are available
     func updateFavorites() {
-//        print("-------")
 //        favorites=[]
         if let fav = userDefaults.array(forKey: "favorites") as? [Int] {
 //            var mutableFav: [Int] = fav
@@ -258,14 +250,7 @@ class NavigationController: UINavigationController, navigationControllerDelegate
         return date1...date2
     }
     
-//    func setNewSale(sale: Sale) {
-//        getSales()
-//        self.newSale = sale
-//        let annotation = CustomAnnotation(sale: sale, coord: sale.getPlacemark()!.coordinate)
-//        annotations[sale] = annotation
-//        allSales.append(sale)
-//        updateActiveSales()
-//    }
+
     
     func getNewSale() -> Sale? {
         let sale = newSale
@@ -273,15 +258,6 @@ class NavigationController: UINavigationController, navigationControllerDelegate
         return sale
     }
     
-//    func setPlacemark() {
-//        let index = tabBarController?.selectedIndex
-//        let view = tabBarController?.viewControllers?[index!]
-//        if index == 0 {
-//            tabBarController?.viewControllers?[0].map
-//        } else {
-//
-//        }
-//    }
     
     func getAllSales() -> [Sale] {
         return allSales
@@ -337,12 +313,7 @@ class NavigationController: UINavigationController, navigationControllerDelegate
         }
     }
     
-//    func newAnnotation(sale: Sale) {
-//        let annotation = CustomAnnotation(sale: sale, coord: sale.getPlacemark()!.coordinate)
-//        annotations[sale] = annotation
-//        allSales.append(sale)
-//        updateActiveSales()
-//    }
+
     
     func setFavorite(sale: Sale) {
         //if the sale is already favorited, unfavorite it, else favorite it
@@ -391,16 +362,7 @@ class NavigationController: UINavigationController, navigationControllerDelegate
     
     func getUserLocation() -> CLLocation? {
         return mapDelegate?.getUserLocation()
-    }
-    
-//    func addPolylines(routes: [MKRoute]) {
-//        self.tab?.selectedIndex = 0
-//        timePeriod.insertSegment(withTitle: "This Week", at: 2, animated: true)
-//        mapDelegate?.addPolylines(routes: routes)
-//    }
-    
-    
-    
+    } 
     
 }
 
@@ -427,9 +389,5 @@ extension NavigationController: UITabBarControllerDelegate {
         return time
     }
     
-//    func setTime(time: Time) {
-//        timePeriod.selectedSegmentIndex = time.rawValue
-//        self.time = time
-//        updateActiveSales()
-//    }
+
 }
