@@ -95,7 +95,6 @@ class AnyTableViewCell: UITableViewCell {
     
     func configure(for sale: Sale) {
         self.sale = sale
-        //add a time, changing based on the navigation button- how do you display multiple dates??
         town.text = "\(sale.type.rawValue) Sale - \(sale.address.town)"
         time.text = "\(sale.dateRange.getStartTime())-\(sale.dateRange.getEndTime())"
         date.text = "\(sale.dateRange.getShortWeekday())."
@@ -108,9 +107,6 @@ class AnyTableViewCell: UITableViewCell {
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
-        //super.setSelected makes the gray line go away
-//        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
     
