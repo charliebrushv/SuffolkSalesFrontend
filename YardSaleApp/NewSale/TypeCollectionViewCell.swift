@@ -29,16 +29,6 @@ class TypeCollectionViewCell: UICollectionViewCell {
     
     func configure(for type: Type) {
         typeLabel.text = type.type.rawValue
-//        switch type.type {
-//        case .tag:
-//            contentView.backgroundColor = .blue
-//        case .yard:
-//            contentView.backgroundColor = .green
-//        case .garage:
-//            contentView.backgroundColor = .red
-//        case .estate:
-//            contentView.backgroundColor = .orange
-//        }
         contentView.backgroundColor = .appColor
         if type.isOn==true {
             contentView.backgroundColor = .lightAppColor
